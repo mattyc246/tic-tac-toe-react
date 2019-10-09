@@ -1,22 +1,64 @@
-.App {
-  text-align: center;
+#root {
+  font-family: "Lexend Giga", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background-color: #395296;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
 }
 
-.App-logo {
-  height: 40vmin;
+.board-container {
+  width: 500px;
+  height: 500px;
+  background-color: #526eba;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.game-tile {
+  width: 100%;
+  height: 100%;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  color: whitesmoke;
+  position: relative;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #09d3ac;
+.p-15 {
+  padding: 10px 10px;
+}
+
+.tile-marker {
+  font-size: 7rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game-tile:hover {
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+.available:active {
+  background-color: rgba(84, 199, 134, 0.5);
+}
+
+.unavailable:active {
+  background-color: rgba(199, 84, 84, 0.5);
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import GameBoard from "./components/GameBoard";
+import WelcomeGame from "./components/WelcomeGame";
+import EndGame from "./components/EndGame";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      gameStarted: false,
+      winner: false,
+      playerWhoWon: ""
+    };
+  }
+
+  newGame = () => {
+    this.setState({
+      gameStarted: true,
+      winner: false,
+      playerWhoWon: ""
+    });
+  };
+
+  startGame = () => {
+    this.setState({
+      gameStarted: true
+    });
+  };
+
+  gameOver = player => {
+    this.setState({
+      winner: true,
+      playerWhoWon: player
+    });
+  };
+
+  render() {
+    const { gameStarted, winner, playerWhoWon } = this.state;
+    return (
+      <>
+        <div className="board-container shadow-lg rounded p-3">
+          {gameStarted ? (
+            winner ? (
+              <EndGame winner={playerWhoWon} newGame={this.newGame} />
+            ) : (
+              <GameBoard gameOver={this.gameOver} />
+            )
+          ) : (
+            <WelcomeGame startGame={this.startGame} />
+          )}
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;
