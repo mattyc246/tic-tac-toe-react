@@ -62,8 +62,6 @@ class GameBoard extends React.Component {
           this.checkWin();
         }
       );
-    } else {
-      alert("Space Taken");
     }
   };
 
